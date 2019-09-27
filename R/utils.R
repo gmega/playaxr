@@ -1,8 +1,3 @@
-RANGES <- data.frame(
-  magnitude = c(1e9, 1e6, 1e3),
-  unit = c('B', 'M', 'k')
-)
-
 if_else <- function(logical, true, false) {
   res <- rep(NA, length(logical))
   res[logical] <- true[logical]
