@@ -1,15 +1,13 @@
 #' @export
 scale_fill_playax <- function(..., aesthetics = 'fill',
-                              mode = 'unnamed', extension = c()) {
-  scale_fill_manual(values = palette_playax(mode, extension),
-                    aesthetics = aesthetics, ...)
+                              palette = palette_playax()) {
+  scale_fill_manual(values = palette, aesthetics = aesthetics, ...)
 }
 
 #' @export
 scale_color_playax <- function(..., aesthetics = 'color',
-                               mode = 'unnamed', extension = c()) {
-  scale_fill_manual(values = palette_playax(mode, extension),
-                    aesthetics = aesthetics, ...)
+                               palette = palette_playax()) {
+  scale_fill_manual(values = palette, aesthetics = aesthetics, ...)
 }
 
 #' @export
