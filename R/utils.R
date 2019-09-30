@@ -1,7 +1,8 @@
 if_else <- function(logical, true, false) {
   res <- rep(NA, length(logical))
-  res[logical] <- true[logical]
-  res[!logical] <- false[!logical]
+  lna <- !is.na(logical)
+  res[lna & logical] <- true[lna & logical]
+  res[lna & !logical] <- false[lna & !logical]
   res
 }
 

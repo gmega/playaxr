@@ -20,13 +20,12 @@ abbrv_large <- function(x) {
     )
   }
   mag_floor <- min(RANGES$magnitude)
-  x_str[x < mag_floor]  <- as.character(floor(x[x < mag_floor]))
-  x_str
+  if_else(abs(x) < mag_floor, as.character(trunc(x)), x_str)
 }
 
 abbrv_range <- function(x, magnitude, unit) {
-  if_else(x >= magnitude & x < magnitude * 1000,
-          sprintf('%d%s', floor(x / magnitude), unit), NA)
+  if_else(abs(x) >= magnitude & abs(x) < magnitude * 1000,
+          sprintf('%d%s', trunc(x / magnitude), unit), NA)
 }
 
 RANGES <- data.frame(
