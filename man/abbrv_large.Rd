@@ -4,7 +4,7 @@
 \alias{abbrv_large}
 \title{Abbreviated labels for \href{https://en.wikipedia.org/wiki/Names_of_large_numbers}{large numbers}.}
 \usage{
-abbrv_large(x)
+abbrv_large(x, decimals = list())
 }
 \description{
 `abbrv_large` takes a numeric vector and returns a character vector containing

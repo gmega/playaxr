@@ -5,7 +5,4 @@
 #' music streaming services, as well as formatting tools for displaying play
 #' counts and more.
 #'
-#'
-#'
-#' @import ggplot2
 '_PACKAGE'

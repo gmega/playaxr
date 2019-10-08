@@ -8,6 +8,9 @@
 #'
 #' @examples
 #'
+#'
+#' library(ggplot2)
+#'
 #' data <- data.frame(
 #'   day = rep(1:20, 3),
 #'   metric = do.call(c, lapply(1:3, function(x) cumsum(rnorm(20, sd = 1e7)))),
@@ -51,11 +54,11 @@ scale_color_playax <- function(..., aesthetics = 'color',
 #' @rdname scale_fill_playax
 #' @export
 scale_y_abbrv <- function(...) {
-  scale_y_continuous(labels = abbrv_large)
+  scale_y_continuous(labels = function(x) abbrv_large(x, ...))
 }
 
 #' @rdname scale_fill_playax
 #' @export
 scale_x_abbrv <- function(...) {
-  scale_x_continuous(labels = abbrv_large)
+  scale_x_continuous(labels = function(x) abbrv_large(x, ...))
 }

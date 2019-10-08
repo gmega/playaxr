@@ -25,6 +25,9 @@ This package provides:
 }
 \examples{
 
+
+library(ggplot2)
+
 data <- data.frame(
   day = rep(1:20, 3),
   metric = do.call(c, lapply(1:3, function(x) cumsum(rnorm(20, sd = 1e7)))),

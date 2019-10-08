@@ -11,11 +11,13 @@
 #'  abbrv_large(c(123456, 28475777, 125, 1.3, 0.1, 1))
 #'
 #' @export
-abbrv_large <- function(x) {
+abbrv_large <- function(x, decimals = list()) {
   x_str <- rep(NA_character_, length(x))
   for (i in 1:nrow(RANGES)) {
+    unit <- RANGES[i,]$unit
+    round_to <- if (is.null(decimals[[unit]])) 0 else decimals[[unit]]
     x_str <- coalesce(
-      abbrv_range(x, RANGES[i,]$magnitude, RANGES[i,]$unit),
+      abbrv_range(x, RANGES[i,]$magnitude, unit, decimals = round_to),
       x_str
     )
   }
@@ -23,12 +25,15 @@ abbrv_large <- function(x) {
   if_else(abs(x) < mag_floor, as.character(trunc(x)), x_str)
 }
 
-abbrv_range <- function(x, magnitude, unit) {
+abbrv_range <- function(x, magnitude, unit, decimals) {
   if_else(abs(x) >= magnitude & abs(x) < magnitude * 1000,
-          sprintf('%d%s', trunc(x / magnitude), unit), NA)
+          sprintf('%s%s', as.character(
+            truncate(x / magnitude, decimals = decimals)), unit),
+          NA)
 }
 
 RANGES <- data.frame(
   magnitude = c(1e9, 1e6, 1e3),
-  unit = c('B', 'M', 'k')
+  unit = c('B', 'M', 'k'),
+  stringsAsFactors = FALSE
 )

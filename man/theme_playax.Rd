@@ -12,6 +12,8 @@ This theme requires Google's Open Sans fonts
 }
 \examples{
 
+library(ggplot2)
+
 ggplot(tibble(x = 1:30, y = rnorm(30))) +
   geom_line(aes(x = x, y = y)) +
   theme_playax()

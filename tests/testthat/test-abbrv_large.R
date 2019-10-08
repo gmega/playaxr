@@ -29,3 +29,9 @@ test_that('abbreviating formatter accepts NA without barfing', {
   x <- c(NA, 3e9, -3e9, 1e9, 13234956)
   expect_equal(abbrv_large(x), c(NA, '3B', '-3B', '1B', '13M'))
 })
+
+test_that('abbreviating formatter takes custom decimals', {
+  x <- c(250129, 350182, 750921, 1500000, 2500000)
+  expect_equal(abbrv_large(x, decimals = list(M = 1)),
+               c('250k', '350k', '750k', '1.5M', '2.5M'))
+})
