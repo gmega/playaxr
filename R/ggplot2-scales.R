@@ -35,7 +35,7 @@
 #' ggplot(data) +
 #'   geom_line(aes(x = day, y = metric, col = service)) +
 #'   theme_playax() +
-#'   scale_color_playax(palette_playax_extended(extension = c('other'))) +
+#'   scale_color_playax(palette = palette_playax_extended(extension = c('other'))) +
 #'   scale_y_abbrv()
 #'
 #' @export

@@ -12,7 +12,7 @@ palette_playax()
 
 palette_playax_unassigned()
 
-palette_playax_all()
+palette_playax_all(assignment = c())
 
 palette_playax_extended(extension = c())
 
@@ -40,8 +40,9 @@ See \link{scale_color_playax} on how to access the Playax palette from
    corresponds to an RGB color string.}
    \item{`palette_playax_unassigned()`}{Returns an unnamed character vector
    containing RGB color strings which are not assigned to any service.}
-   \item{`palete_playax_all()`}{Returns an unnamed character vector with all
-   of the colors in the palette, assigned or otherwise.}
+   \item{`palete_playax_all()`}{Returns a character vector with all
+   of the colors in the palette, assigned or otherwise. Clients may
+   optionally specify custom assignment names for the colors.}
    \item{`palette_playax_extended()`}{Returns a named character vector with
    all of the colors in `palette_playax_assigned()`, plus a set of unassigned
    colors picked from the palette and bound to the names passed in the
