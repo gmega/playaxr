@@ -4,6 +4,7 @@
 \alias{palette_playax}
 \alias{palette_playax_unassigned}
 \alias{palette_playax_all}
+\alias{palette_playax_select}
 \alias{palette_playax_extended}
 \alias{palette_playax_services}
 \title{A palette with a set of predefined colors}
@@ -13,6 +14,8 @@ palette_playax()
 palette_playax_unassigned()
 
 palette_playax_all(assignment = c())
+
+palette_playax_select(which = c())
 
 palette_playax_extended(extension = c())
 

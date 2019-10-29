@@ -1,7 +1,7 @@
 Package: playaxr
 Type: Package
 Title: Create R plots conforming to the Playax standards.
-Version: 0.1.0
+Version: 0.2.0
 Author: Giuliano Mega 
 Maintainer: Giuliano Mega <giuliano@playax.com>
 Description: Collection of plotting utilities and templates for creating 

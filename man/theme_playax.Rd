@@ -4,7 +4,7 @@
 \alias{theme_playax}
 \title{Playax theme for ggplot2 charts}
 \usage{
-theme_playax()
+theme_playax(font_size = 12)
 }
 \description{
 This theme requires Google's Open Sans fonts
