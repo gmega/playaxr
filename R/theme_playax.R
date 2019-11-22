@@ -23,3 +23,15 @@ theme_playax <- function(font_size = 12) {
     panel.grid.minor.y = element_blank()
   )
 }
+
+#' @export
+big_fonts <- function(n = 12) {
+  list(
+    theme(
+      axis.text = element_text(size = n),
+      axis.title = element_text(size = n),
+      text = element_text(size = n),
+      legend.text = element_text(size = n)
+    )
+  )
+}
