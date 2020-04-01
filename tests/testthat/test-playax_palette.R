@@ -20,3 +20,15 @@ test_that('palette_playax_extended barfs if extension too large', {
     'Palette has 3 available slots but extension has 4 elements.'
   )
 })
+
+test_that('renaming reassigns existing colors', {
+  new_palette <- palette_playax_extended(
+    replacement = c('myspace' = 'facebook', 'mytube' = 'youtube')
+  )
+
+  expect_equal(palette_playax()[['facebook']], new_palette[['myspace']])
+  expect_equal(palette_playax()[['youtube']], new_palette[['mytube']])
+
+  expect_error(new_palette[['youtube']], 'subscript out of bounds')
+  expect_error(new_palette[['facebook']], 'subscript out of bounds')
+})

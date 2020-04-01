@@ -17,7 +17,7 @@ palette_playax_all(assignment = c())
 
 palette_playax_select(which = c())
 
-palette_playax_extended(extension = c())
+palette_playax_extended(extension = c(), replacements = c())
 
 palette_playax_services()
 }

@@ -58,7 +58,7 @@ palette_playax_select <- function(which = c()) {
 
 #' @rdname palette_playax
 #' @export
-palette_playax_extended <- function(extension = c()) {
+palette_playax_extended <- function(extension = c(), replacements = c()) {
   assigned <- Filter(function(x) x != '', names(PLAYAX_PALETTE))
   unassigned <- length(PLAYAX_PALETTE) - length(assigned)
   if (length(extension) > unassigned) {
@@ -68,9 +68,17 @@ palette_playax_extended <- function(extension = c()) {
   }
   # Copy before poking.
   palette <- PLAYAX_PALETTE
+  # Applies extension.
   extended_names <- c(assigned, extension)
   names(palette) <- extended_names
-  palette[1:(length(extended_names))]
+  extended <- palette[1:(length(extended_names))]
+  # Applies renaming.
+  replaced <- extended[replacements]
+  if (any(is.na(replaced))) {
+    stop('Invalid replacement keys.')
+  }
+  extended[names(replacements)] <- replaced
+  extended[!(names(extended) %in% replacements)]
 }
 
 #' @rdname palette_playax
