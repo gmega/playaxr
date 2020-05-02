@@ -7,6 +7,13 @@ test_that('palette_playax_unassigned returns unassigned colors', {
                unname(PLAYAX_PALETTE[names(PLAYAX_PALETTE) == '']))
 })
 
+test_that('palette_playax_select actually selects', {
+  expect_equal(
+    palette_playax_select(c('youtube', 'facebook')),
+    PLAYAX_PALETTE[c('youtube', 'facebook')]
+  )
+})
+
 test_that('palette_playax_extended binds names to unassigned slots', {
   named <- length(palette_playax())
   extended_palette <- palette_playax_extended(extension =  c('apple', 'outros'))

@@ -15,7 +15,7 @@ palette_playax_unassigned()
 
 palette_playax_all(assignment = c())
 
-palette_playax_select(which = c())
+palette_playax_select(services = c())
 
 palette_playax_extended(extension = c(), replacements = c())
 
@@ -25,15 +25,15 @@ palette_playax_services()
 \item{extension}{a character vector with extra service names.}
 }
 \description{
-palette_playax_XX expose a set of predefined colors which are either _assigned_
-to existing streaming services (which can be checked with `palette_playax_services`.\
-or are otherwise
-_unassigned_ and can be reused for other purposes. These colors should be
-used in time series, histograms, and any plots where their corresponding
-streaming service arise, and completed with the unassigned colors if there
-is a need to present extra information (e.g. data from other services).
+`palette_playax_XX` exposes a set of predefined colors which are either _assigned_
+to existing streaming services (which can be checked with `palette_playax_services`)
+or are otherwise _unassigned_ and can be reused for other purposes.
 }
 \details{
+These colors should be used in time series, histograms, and any plots where their corresponding
+streaming service arises, and completed with the unassigned colors if there
+is a need to present extra information (e.g. data from other services).
+
 See \link{scale_color_playax} on how to access the Playax palette from
 `ggplot2`.
 
@@ -52,5 +52,7 @@ See \link{scale_color_playax} on how to access the Playax palette from
    `extension` parameter.}
    \item{`palette_playax_services()`}{Returns a character vector with the
    set of streaming services supported by the palette.}
+   \item{`palette_playax_select()`}{Returns colors assigned to specific
+   services. Shortcut for `palette_playax()[services].` }
 }
 }

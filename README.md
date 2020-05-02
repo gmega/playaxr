@@ -1,3 +1,4 @@
 playaxr
 =======
-Build Playax standards compliant plots with R using ggplot2 and plotly.
+Create plots which conform to [Playax](http://www.playax.com) standards with 
+R using ggplot2 and plotly.
