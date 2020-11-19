@@ -8,6 +8,7 @@ run_comparison <- function(x) {
 
 test_that('abbreviating formatter works', {
   x <- list(
+    3e12, '3T',
     3e9, '3B',
     -3e9, '-3B',
     1e9, '1B',

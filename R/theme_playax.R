@@ -25,6 +25,31 @@ theme_playax <- function() {
     big_fonts(DEFAULT_FONTSIZE)
 }
 
+#' Playax "black" theme for ggplot2 charts
+#'
+#' This theme requires Google's Open Sans fonts
+#' \url{https://fonts.google.com/specimen/Open+Sans} to work properly.
+#'
+#' @export
+theme_playax_black <- function() {
+  theme_minimal() +
+    theme(
+      text = element_text(family = 'Open Sans', color = 'white'),
+      legend.key = element_rect(colour = NA, fill = NA),
+      plot.background = element_rect(fill = '#262626'),
+      panel.background = element_rect(fill = '#262626', colour = NA),
+      axis.ticks = element_line(colour = 'white'),
+      axis.text = element_text(colour = 'white'),
+      strip.text = element_text(colour = 'white'),
+      # Playax black is completely gridless.
+      panel.grid.major.y = element_blank(),
+      panel.grid.minor.y = element_blank(),
+      panel.grid.major.x = element_blank(),
+      panel.grid.minor.x = element_blank()
+    ) +
+    big_fonts(DEFAULT_FONTSIZE)
+}
+
 #' @export
 big_fonts <- function(n = DEFAULT_FONTSIZE) {
   list(
@@ -32,7 +57,8 @@ big_fonts <- function(n = DEFAULT_FONTSIZE) {
       axis.text = element_text(size = n),
       axis.title = element_text(size = n),
       text = element_text(size = n),
-      legend.text = element_text(size = n)
+      legend.text = element_text(size = n),
+      strip.text = element_text(size = n)
     )
   )
 }

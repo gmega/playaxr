@@ -1,7 +1,7 @@
 Package: playaxr
 Type: Package
 Title: Create R plots conforming to the Playax standards.
-Version: 1.0.0
+Version: 2.0.0
 Author: Giuliano Mega 
 Maintainer: Giuliano Mega <giuliano@playax.com>
 Description: Collection of plotting utilities and templates for creating 
@@ -12,4 +12,4 @@ Encoding: UTF-8
 LazyData: true
 Suggests: 
     testthat (>= 2.1.0)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1

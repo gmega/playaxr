@@ -9,8 +9,7 @@
 \usage{
 scale_fill_playax(..., aesthetics = "fill", palette = palette_playax())
 
-scale_color_playax(..., aesthetics = "color",
-  palette = palette_playax())
+scale_color_playax(..., aesthetics = "color", palette = palette_playax())
 
 scale_y_abbrv(...)
 

@@ -71,7 +71,7 @@ compute_decimals <- function(x) {
 }
 
 RANGES <- data.frame(
-  magnitude = c(1e3, 1e6, 1e9),
-  unit = c('k', 'M', 'B'),
+  magnitude = c(1e3, 1e6, 1e9, 1e12),
+  unit = c('k', 'M', 'B', 'T'),
   stringsAsFactors = FALSE
 )

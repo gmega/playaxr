@@ -8,13 +8,29 @@ abbrv_large(x, decimals = NULL)
 }
 \description{
 `abbrv_large` takes a numeric vector and returns a character vector containing
- abbreviated names of the form `DDDC` where `DDD` are the three most significant
- digits of the number, and `C` an abbreviation which summarises its magnitude.
- For instance, `1e6` will be mapped to `1M`, and `123845` to `123k`. Note
- that numbers are _truncated_, and not rounded, to obtain `DDD`.
+ abbreviated names of the form `[DDD].[S+]C` where `[DDD]` and [S+] is a variable
+ prefix of the of the original number containing its most significant digits,
+ and `C` an abbreviation which summarises its magnitude. In addition, `abbrv_large` may
+ add decimal places to the abbreviated number to disambiguate them from other numbers
+ close in the scale.
+}
+\details{
+For example, `1e6` will be typically mapped into `1M`, and `123845` to `123k`.
+ However, `abbrv_large` may add decimal places if more than one number in the input
+ maps into the same abbreviated representation. The number of decimal places
+ kept is the minimum required to disambiguate all of the abbreviated representations
+ (see examples).
+
+ Numbers are _truncated_, not rounded, into their large number representation.
 }
 \examples{
 
- abbrv_large(c(123456, 28475777, 125, 1.3, 0.1, 1))
+ # All abbreviations are unique, do not add decimal places.
+ abbrv_large(c(123456, 28475777, 125, 1.3, 0.1))
+ # [1] "123k" "28M"  "125"  "1"    "0"
+
+ # Adds one decimal place to the `k` range to disambiguate 123.4k from 123.5k.
+ abbrv_large(c(123456, 123556, 28475777, 125, 1.3, 0.1, 1))
+ # [1] "123.4k" "123.5k" "28M"    "125"    "1"      "0"
 
 }
