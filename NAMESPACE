@@ -2,6 +2,7 @@
 
 export(abbrv_large)
 export(big_fonts)
+export(bumpup_bounded)
 export(legend_bottom)
 export(palette_playax)
 export(palette_playax_all)

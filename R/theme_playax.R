@@ -34,7 +34,7 @@ theme_playax <- function() {
 theme_playax_black <- function() {
   theme_minimal() +
     theme(
-      text = element_text(family = 'Open Sans', color = 'white'),
+      text = element_text(family = 'Open Sans', color = 'white', face = 'bold'),
       legend.key = element_rect(colour = NA, fill = NA),
       plot.background = element_rect(fill = '#262626'),
       panel.background = element_rect(fill = '#262626', colour = NA),

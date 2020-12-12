@@ -1,12 +1,13 @@
 Package: playaxr
 Type: Package
 Title: Create R plots conforming to the Playax standards.
-Version: 2.0.1
+Version: 3.0.0
 Author: Giuliano Mega 
 Maintainer: Giuliano Mega <giuliano@playax.com>
 Description: Collection of plotting utilities and templates for creating 
   ggplot2 and plotly plots which conform to the Playax plot standards.
-Imports: ggplot2 (>= 3.2)
+Imports: ggplot2 (>= 3.2),
+         directlabels (>= 2020.6.7)
 License: AGPL
 Encoding: UTF-8
 LazyData: true
