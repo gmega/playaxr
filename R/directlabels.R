@@ -15,9 +15,12 @@
 bumpup_bounded <- function(d, max_bump = 1.1, ...) {
   d <- calc.boxes(d)[order(d$y),]
 
-  # keeps track of cumulative nudge
+  # keeps track of
+  # 1. cumulative nudge
   cumulative_nudge <- 0
-  drop <- c()
+  # 2. dropped labels
+  dropped <- c()
+  # 3. index of lowest undropped label
   j <- 1
 
   # scans from the bottom up
@@ -25,29 +28,29 @@ bumpup_bounded <- function(d, max_bump = 1.1, ...) {
   #      we have to check for that and leave them alone in these cases.
   for (i in 2:nrow(d)) {
     nudge_limit <- d$h[i] * max_bump
-    nudge <- d$bottom[i] - d$top[j]
+    nudge <- min(d$bottom[i] - d$top[j], 0)
 
-    if (nudge < 0) {
-      # total nudge is current plus whatever we already
-      # applied in the boxes below
-      cumulative_nudge <- cumulative_nudge + abs(nudge)
-    } else {
-      nudge <- 0
-    }
-
-    # If the cumulative nudge gets too large, drops labels until
-    # we get back to an acceptable nudge.
-    if (cumulative_nudge > nudge_limit) {
-      drop <- c(drop, i)
-      cumulative_nudge <- cumulative_nudge - abs(nudge)
+    # No overlap, nothing to do.
+    if (nudge == 0) {
+      j <- i
       next
     }
-    # Otherwise, applies nudge.
+
+    # If the cumulative nudge gets too large, drops the current label to
+    # try and make room.
+    if (cumulative_nudge + abs(nudge) > nudge_limit) {
+      dropped <- c(dropped, i)
+      next
+    }
+
+    # Otherwise, we've got room. Applies nudge.
     d$bottom[i] <- d$bottom[i] - nudge
     d$top[i] <- d$top[i] - nudge
     d$y[i] <- d$y[i] - nudge
+
     j <- i
+    cumulative_nudge <- cumulative_nudge + abs(nudge)
   }
 
-  d[!(1:nrow(d) %in% drop),]
+  d[!(1:nrow(d) %in% dropped),]
 }
