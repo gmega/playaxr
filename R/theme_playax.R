@@ -36,7 +36,7 @@ theme_playax_black <- function() {
     theme(
       text = element_text(family = 'Open Sans', color = 'white', face = 'bold'),
       legend.key = element_rect(colour = NA, fill = NA),
-      plot.background = element_rect(fill = '#262626'),
+      plot.background = element_rect(fill = '#262626', colour = NA),
       panel.background = element_rect(fill = '#262626', colour = NA),
       axis.ticks = element_line(colour = 'white'),
       axis.text = element_text(colour = 'white'),
